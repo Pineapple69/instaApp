@@ -110,6 +110,16 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  .state('tabsController.settings', {
+    url: '/page9',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/settings.html',
+        controller: 'settingsCtrl'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/page1/page1')
 
   
