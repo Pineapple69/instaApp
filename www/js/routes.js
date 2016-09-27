@@ -120,6 +120,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
+  .state('page', {
+    url: '/page10',
+    templateUrl: 'templates/page.html',
+    controller: 'pageCtrl'
+  })
+
 $urlRouterProvider.otherwise('/page1/page1')
 
   
