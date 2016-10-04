@@ -1,8 +1,21 @@
 <ion-view title="Camera " id="page2">
-    <ion-content padding="true" class="has-header">
-        <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
-            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-        </div>
-        <button id="camera-button10" class="button button-positive  button-block">Make photo</button>
-    </ion-content>
+<ion-content padding="true"  class="has-header" ng-contoller="CameraCtrl"> 	
+<ion-item ng-controller="MainCtrl" style="border-style: inherit;"> 
+<ion-item ng-controller="ImagePickerController" style="border-style: inherit;">
+    <img ng-src="{{srcImage || collection.selectedImage}}" id="srcImage" width="300" height="300" style="display: block; margin: 0 auto;"/><br/>
+    <button class="button button-full button-energized"   ng-click="getImageSaveContact()" >
+                    Get Image from Gallery</button>
+
+                  
+                    </ion-item> 
+                    <button class="button button-full button-balanced"  ng-click="takeImage() " >Take Image</button>
+</ion-item>
+
+     <label class="item item-input item-text-wrap">
+            <input type="text" placeholder="Write a caption..." ng-model="newCaption">
+        </label>
+   <center class="padding">
+        <input value="Share" type="submit" class="button button-calm " ng-click="sharePhoto(newCaption)">
+      </center>    
+  </ion-content>
 </ion-view>

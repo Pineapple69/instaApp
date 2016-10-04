@@ -1,5 +1,45 @@
 <ion-view title="Main page" id="page7">
     <ion-content padding="false" class="has-header">
+ <!--    <ion-form ng-controller='Page2Ctrl'>
+   <ion-item class="item-avatar" id="mainPage-list-item10">
+                 <img src="img/F1qvOrsBR7W449sH6wGg_16000486.jpg">
+                <h2dark>Myprofile666</h2dark>
+</ion-item>
+        
+</ion-form>-->
+    <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="card" ng-repeat="post in posts">
+            <div class="item item-avatar item-button-right avatar-bar-custom" href="#">
+                <button class="button button-icon icon ion-android-more-vertical btn-avatar" ></button>
+            </div>
+            <div class="item item-image">
+                <img class="no margin" ng-src="{{post.image}}">
+            </div>
+
+            <div class="">
+                <a class="button button-icon icon ion-ios-heart-outline" ng-click="doSomething()" ></a>
+                <a class="button button-icon icon ion-ios-chatbubble-outline" ng-click="doSomething()" ></a>
+                <a class="button button-icon icon ion-ios-redo-outline" ng-click="doSomething()" ></a>
+            </div>
+
+            <div class="item item-text-wrap">
+                <p> <a href="#" class="subdued ion-heart" > {{post.likes}} likes</a><br></p>
+                <div>
+                        <p>
+                                <b>{{post.name}}</b> {{post.caption}}
+                        </p>
+                        <p ng-repeat="c in post.comments">
+                                <b>{{c.user.username}}</b> {{c.comment}}
+                        </p>
+                </div>
+            </div>
+        </div>
+
+
         <ion-list id="mainPage-list3">
             <ion-item class="item-avatar dark" id="mainPage-list-item11" ui-sref="tabsController.settings">
                 <img src="img/F1qvOrsBR7W449sH6wGg_16000486.jpg">
@@ -14,7 +54,10 @@
             <img src="img/WW5NGuoMT9eZfZWzZU8f_photo-1438201743149-3cc16cd4cddd.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
         <div id="mainPage-button-bar1" class="button-bar">
-            <button id="mainPage-button1" class="button button-light  button-block icon-left ion-heart">1</button>
+            <button id="mainPage-button1" class="button button-light  button-block " 
+            ng-click="liked=!liked">
+                <i id="like" ng-class="{'icon ion-ios-heart': liked, 'icon ion-ios-heart-outline': !liked}" ng-click="liked=!liked"></i>
+            </button>
             <a ui-sref="tabsController.messages" id="mainPage-button2" class="button button-light  button-block icon ion-ios-email"></a>
             <button id="mainPage-button3" class="button button-light  button-block icon ion-reply"></button>
         </div>
@@ -26,23 +69,18 @@
             <p>
                 <strong>Bond007:</strong>Amazing view</p>
         </div>
-        <ion-list id="mainPage-list7">
-            <ion-item class="item-avatar" id="mainPage-list-item17">
-                <img src="img/aZ9teD2tQyGgPSi5IJhS_3.jpg">
-                <h2>Brandon2006</h2>
-            </ion-item>
-        </ion-list>
-        <div>
-            <img src="img/fLliH7hHRpucguNB9qmZ_Common-dog-behaviors-explained.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
-        </div>
-        <div id="mainPage-button-bar2" class="button-bar">
-            <button id="mainPage-button4" class="button button-light  button-block icon-left ion-heart">18</button>
-            <a ui-sref="tabsController.messages" id="mainPage-button5" class="button button-light  button-block icon ion-email"></a>
-            <button id="mainPage-button6" class="button button-light  button-block icon ion-reply"></button>
-        </div>
-        <div id="mainPage-markdown1" style="color:#000000;">
+        <form ng-controller="AppCtrl">
+           <div id="mainPage-markdown4" style="color:#000000;">
             <p>
-                <strong>Alan:</strong>Great dog. Are you travelling now?</p>
+                <strong></strong>{{ name }}</p>
         </div>
+   <ion-item class="item-input">
+   
+     <input type="text" ng-model="data.firstName" placeholder="Your comment">
+   </ion-item>
+  
+<button class="button button-full button-light" ng-click="saveName()">Make comment</button>
+
+     </form>
     </ion-content>
 </ion-view>
